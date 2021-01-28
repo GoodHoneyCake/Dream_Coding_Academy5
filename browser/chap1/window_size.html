@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      section {
+        background-color: violet;
+        display: inline-block;
+        padding: 10px;
+      }
+    </style>
+    <section></section>
+    <script>
+      const section = document.querySelector("section");
+      function updateSection() {
+        section.innerHTML = `window.screen: ${window.screen.width}:${window.screen.height} <br/>
+        window.outer: ${window.outerWidth}:${window.outerHeight} <br/>
+        window.inner: ${window.innerWidth}:${window.innerHeight} <br/>
+        document.documentElement.clientWidth and Height: ${document.documentElement.clientWidth}:${document.documentElement.clientHeight}`;
+      }
+      window.addEventListener("resize", () => {
+        updateSection();
+      });
+      updateSection();
+    </script>
+  </body>
+</html>

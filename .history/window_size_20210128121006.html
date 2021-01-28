@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      section {
+        background-color: violet;
+        width: 50%;
+      }
+    </style>
+    <section>
+      <ul>
+        <li class="screen"></li>
+        <li class="outer"></li>
+        <li class="inner"></li>
+        <li class="document"></li>
+      </ul>
+    </section>
+    <script>
+      const screen = document.querySelector(".screen");
+      const outer = document.querySelector(".outer");
+      const inner = document.querySelector(".inner");
+      const doc = document.querySelector(".document");
+      const html = document.querySelector("html");
+      window.addEventListener("resize", (e) => {
+        screen.innerText = `window.screen: ${window.screen.width}:${e.target.screen.height}`;
+        outer.innerText = `window.outer: ${e.target.outerWidth}:${e.target.outerHeight}`;
+        inner.innerText = `window.inner: ${e.target.innerWidth}:${e.target.innerHeight}`;
+        doc.innerText = `documentElement.clientWidth:: ${html.clientWidth}`;
+      });
+    </script>
+  </body>
+</html>

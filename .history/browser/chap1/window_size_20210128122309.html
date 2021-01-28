@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      section {
+        background-color: violet;
+        display: inline-block;
+        padding: 10px;
+      }
+    </style>
+    <section class="box"></section>
+    <script>
+      const box = document.querySelector(".box");
+      window.addEventListener("resize", () => {
+        box.innerHTML = `window.screen: ${window.screen.width}:${window.screen.height};
+        window.outer: ${window.outerWidth}:${window.outerHeight};
+        window.inner: ${window.innerWidth}:${window.innerHeight};
+        document
+        .documentElement
+        .clientWidth and Height: ${document.documentElement.clientWidth}:${document.documentElement.clientHeight}`;
+      });
+    </script>
+  </body>
+</html>
