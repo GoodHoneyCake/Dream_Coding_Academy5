@@ -10,11 +10,10 @@
       background-color: black;
       color: white;
     }
-    aside {
-      position: fixed;
+    button {
+      position: static;
       right: 10px;
     }
-
     p {
       position: fixed;
       left: 300px;
@@ -30,11 +29,9 @@
     }
   </style>
   <body>
-    <aside>
-      <button class="byBtn">Scroll by 100px(y)</button>
-      <button class="toBtn">Scroll to 100px(y)</button>
-      <button class="intoBtn">Scroll into div8</button>
-    </aside>
+    <button>Scroll by 100px(y)</button>
+    <button>Scroll to 100px(y)</button>
+    <button>Scroll into div8</button>
     <p>위치를 보려면 마우스를 이동하십시오..</p>
     <p id="screen-log"></p>
     <div></div>
@@ -49,34 +46,20 @@
     <div></div>
   </body>
   <script>
+    let screenLog = document.querySelector("#screen-log");
+
     const div8 = document.querySelector(".div8");
     const rect = div8.getBoundingClientRect();
     div8.addEventListener("click", () => {
       console.log(rect);
     });
 
-    let screenLog = document.querySelector("#screen-log");
     document.addEventListener("mousemove", logKey);
+
     function logKey(e) {
       screenLog.innerText = `
     Page X/Y: ${e.pageX}, ${e.pageY}
     Client X/Y: ${e.clientX}, ${e.clientY}`;
     }
-
-    const byBtn = document.querySelector(".byBtn");
-    byBtn.addEventListener("click", () => {
-      window.scrollBy({ top: 100, behavior: "smooth" });
-    });
-
-    const toBtn = document.querySelector(".toBtn");
-    toBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 100, behavior: "smooth" });
-    });
-
-    const intoBtn = document.querySelector(".intoBtn");
-    intoBtn.addEventListener("click", () => {
-      // div8.scrollIntoView()
-      window.scrollTo({ top: rect.bottom, behavior: "smooth" });
-    });
   </script>
 </html>

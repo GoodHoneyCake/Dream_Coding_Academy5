@@ -10,7 +10,7 @@
       background-color: black;
       color: white;
     }
-    aside {
+    section {
       position: fixed;
       right: 10px;
     }
@@ -30,11 +30,11 @@
     }
   </style>
   <body>
-    <aside>
+    <section>
       <button class="byBtn">Scroll by 100px(y)</button>
       <button class="toBtn">Scroll to 100px(y)</button>
       <button class="intoBtn">Scroll into div8</button>
-    </aside>
+    </section>
     <p>위치를 보려면 마우스를 이동하십시오..</p>
     <p id="screen-log"></p>
     <div></div>
@@ -75,8 +75,7 @@
 
     const intoBtn = document.querySelector(".intoBtn");
     intoBtn.addEventListener("click", () => {
-      // div8.scrollIntoView()
-      window.scrollTo({ top: rect.bottom, behavior: "smooth" });
+      window.scrollTo({ top: rect.y, behavior: "smooth" });
     });
   </script>
 </html>
