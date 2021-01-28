@@ -43,9 +43,6 @@
 
     const div8 = document.querySelector(".div8");
     const rect = div8.getBoundingClientRect();
-    div8.addEventListener("click", () => {
-      console.log(rect);
-    });
 
     document.addEventListener("mousemove", logKey);
 
@@ -53,6 +50,7 @@
       screenLog.innerText = `
     Page X/Y: ${e.pageX}, ${e.pageY}
     Client X/Y: ${e.clientX}, ${e.clientY}`;
+      console.log(rect);
     }
   </script>
 </html>
