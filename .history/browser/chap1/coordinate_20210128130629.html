@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    p {
+      position: fixed;
+      left: 300px;
+    }
+    div {
+      background-color: wheat;
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+    }
+    .div8 {
+      background-color: tomato;
+    }
+  </style>
+  <body>
+    <p id="screen-log"></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="div8"></div>
+    <div></div>
+    <div></div>
+  </body>
+  <script>
+    let screenLog = document.querySelector("#screen-log");
+    document.addEventListener("mousemove", logKey);
+
+    function logKey(e) {
+      screenLog.innerText = `
+    Page X/Y: ${e.pageX}, ${e.pageY}
+    Client X/Y: ${e.clientX}, ${e.clientY}`;
+    }
+  </script>
+</html>
