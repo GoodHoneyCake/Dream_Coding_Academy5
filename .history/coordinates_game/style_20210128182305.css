@@ -7,7 +7,7 @@ body {
 
 .line {
   position: absolute;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .horizontal {
@@ -26,5 +26,7 @@ body {
 }
 
 .tag {
+  color: white;
   position: absolute;
+  transform: translate(20px, 20px);
 }

@@ -1,8 +1,5 @@
 body {
   background-color: black;
-  font-size: 38px;
-  margin: 0;
-  color: white;
 }
 
 .line {
@@ -13,18 +10,27 @@ body {
 .horizontal {
   width: 100%;
   height: 1px;
+  transform: translateX(50%);
 }
 
 .vertical {
   width: 1px;
   height: 100%;
+  left: 50%;
 }
 
 .target {
   position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .tag {
+  color: white;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(20px, 20px);
+  font-size: 38px;
 }

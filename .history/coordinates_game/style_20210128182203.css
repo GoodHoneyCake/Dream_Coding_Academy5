@@ -2,7 +2,6 @@ body {
   background-color: black;
   font-size: 38px;
   margin: 0;
-  color: white;
 }
 
 .line {
@@ -26,5 +25,7 @@ body {
 }
 
 .tag {
+  color: white;
   position: absolute;
+  transform: translate(20px, 20px);
 }

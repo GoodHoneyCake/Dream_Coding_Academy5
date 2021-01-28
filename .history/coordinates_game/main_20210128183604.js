@@ -5,7 +5,7 @@ const horizontal = document.querySelector(".horizontal");
 const target = document.querySelector(".target");
 const tag = document.querySelector(".tag");
 
-window.addEventListener("load", () => {
+addEventListener("load", () => {
   const targetRect = target.getBoundingClientRect();
   const targetHalfWidth = targetRect.width / 2;
   const targetHalfHeight = targetRect.height / 2;
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
       y - targetHalfHeight
     }px)`;
 
-    tag.style.transform = `translate(${x + 20}px,${y + 20}px)`;
+    tag.style.transform = `translate(${x}px,${y}px)`;
 
     tag.innerHTML = `${x} : ${y}`;
   });
