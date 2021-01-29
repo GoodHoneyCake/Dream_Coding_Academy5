@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: cadetblue;
+  width: 100%;
+  height: 100%;
+}
+
+.shopping-list {
+  width: 50%;
+  height: 50%;
+  background-color: forestgreen;
+  transform: translate(50%, 50%);
+}
+
+.header {
+  background-color: hotpink;
+}
+
+.header__title {
+  font-size: 36px;
+}
+
+.list {
+  background-color: white;
+  height: 70%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  width: 100%;
+}
+
+.footer {
+  background-color: hotpink;
+  height: 15%;
+}
+.footer__btn {
+  display: flex;
+  justify-self: center;
+}

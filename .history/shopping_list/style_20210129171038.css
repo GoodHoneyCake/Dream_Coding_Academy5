@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: cadetblue;
+  width: 100%;
+}
+
+.shopping-list {
+  width: 50%;
+  height: 50%;
+}
