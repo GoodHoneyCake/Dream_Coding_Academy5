@@ -54,9 +54,5 @@ addBtn.addEventListener("click", () => {
 });
 
 input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    onAdd();
-  } else {
-    return;
-  }
+  console.log(e.key);
 });

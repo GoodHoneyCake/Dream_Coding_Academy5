@@ -52,11 +52,3 @@ function createItem(text) {
 addBtn.addEventListener("click", () => {
   onAdd();
 });
-
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    onAdd();
-  } else {
-    return;
-  }
-});
