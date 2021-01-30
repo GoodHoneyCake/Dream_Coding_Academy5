@@ -64,7 +64,6 @@ body {
   border: 3px solid black;
   visibility: hidden;
   user-select: none;
-  cursor: auto;
 }
 
 .game__field {

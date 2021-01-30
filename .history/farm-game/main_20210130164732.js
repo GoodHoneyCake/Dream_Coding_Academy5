@@ -65,7 +65,6 @@ function finishGame(win) {
   } else {
     playSound(bugSound);
   }
-  stopGameTimer();
   stopSound(bgSound);
   showPopUpWithText(win ? "YOU WON 🥰" : "YOU LOST 🥲");
 }
@@ -74,7 +73,6 @@ function showStopBtn() {
   const icon = gameBtn.querySelector(".fas");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
-  gameBtn.style.visibility = "visible";
 }
 
 function hideGameBtn() {

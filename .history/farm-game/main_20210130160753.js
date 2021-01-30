@@ -15,11 +15,6 @@ const popUpText = document.querySelector(".pop-up__message");
 const popUpRefresh = document.querySelector(".pop-up__refresh");
 
 const carrotSound = new Audio("./sound/carrot_pull.mp3");
-const alertSound = new Audio("./sound/alert.wav");
-const bgSound = new Audio("./sound/bg.mp3");
-const bugSound = new Audio("./sound/bug_pull.mp3");
-const windSound = new Audio("./sound/game_win.mp3");
-
 let started = false;
 let score = 0;
 let timer = undefined;
@@ -45,7 +40,6 @@ function startGame() {
   showStopBtn();
   showTimeAndScore();
   startGameTimer();
-  playSound(bgSound);
 }
 
 function stopGame() {
@@ -53,20 +47,11 @@ function stopGame() {
   stopGameTimer();
   hideGameBtn();
   showPopUpWithText("REPLAY? 🥕");
-  playSound(alertSound);
-  stopSound(bgSound);
 }
 
 function finishGame(win) {
   started = false;
   hideGameBtn();
-  if (win) {
-    playSound(windSound);
-  } else {
-    playSound(bugSound);
-  }
-  stopGameTimer();
-  stopSound(bgSound);
   showPopUpWithText(win ? "YOU WON 🥰" : "YOU LOST 🥲");
 }
 
@@ -74,7 +59,6 @@ function showStopBtn() {
   const icon = gameBtn.querySelector(".fas");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
-  gameBtn.style.visibility = "visible";
 }
 
 function hideGameBtn() {
@@ -120,7 +104,6 @@ function updateTimerText(time) {
 }
 
 function initGame() {
-  score = 0;
   field.innerHTML = "";
   gameScore.innerText = CARROT_COUNT;
   // 벌레와 당근을 생성한뒤 필드에 추가해준다
@@ -144,17 +127,9 @@ function onFieldClick(e) {
     }
   } else if (target.matches(".bug")) {
     // 벌레!!
+    stopGameTimer();
     finishGame(false);
   }
-}
-
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
-}
-
-function stopSound(sound) {
-  sound.pause();
 }
 
 function updateScoreBoard() {
