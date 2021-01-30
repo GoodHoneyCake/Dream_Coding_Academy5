@@ -26,15 +26,10 @@ gameBtn.addEventListener("click", () => {
   } else {
     startGame();
   }
-});
-
-popUpRefresh.addEventListener("click", () => {
-  startGame();
-  hidePopUp();
+  started = !started;
 });
 
 function startGame() {
-  started = true;
   initGame();
   showStopBtn();
   showTimeAndScore();
@@ -42,20 +37,13 @@ function startGame() {
 }
 
 function stopGame() {
-  started = false;
   stopGameTimer();
   hideGameBtn();
   showPopUpWithText("REPLAY? 🥕");
 }
 
-function finishGame(win) {
-  started = false;
-  hideGameBtn();
-  showPopUpWithText(win ? "YOU WON 🥰" : "YOU LOST 🥲");
-}
-
 function showStopBtn() {
-  const icon = gameBtn.querySelector(".fas");
+  const icon = gameBtn.querySelector(".fa-play");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
 }
@@ -76,7 +64,6 @@ function startGameTimer() {
   timer = setInterval(() => {
     if (remainingTimeSec <= 0) {
       clearInterval(timer);
-      finishGame(CARROT_COUNT === score);
       return;
     }
     updateTimerText(--remainingTimeSec);
@@ -90,10 +77,6 @@ function stopGameTimer() {
 function showPopUpWithText(text) {
   popUpText.innerText = text;
   popUp.classList.remove("pop-up--hide");
-}
-
-function hidePopUp() {
-  popUp.classList.add("pop-up--hide");
 }
 
 function updateTimerText(time) {
@@ -111,27 +94,7 @@ function initGame() {
 }
 
 function onFieldClick(e) {
-  if (started === false) {
-    return;
-  }
-  const target = e.target;
-  if (target.matches(".carrot")) {
-    // 당근!!
-    target.remove();
-    score++;
-    updateScoreBoard();
-    if (score === CARROT_COUNT) {
-      finishGame(true);
-    }
-  } else if (target.matches(".bug")) {
-    // 벌레!!
-    stopGameTimer();
-    finishGame(false);
-  }
-}
-
-function updateScoreBoard() {
-  gameScore.innerText = CARROT_COUNT - score;
+  console.log(e);
 }
 
 function addItem(className, count, imgPath) {

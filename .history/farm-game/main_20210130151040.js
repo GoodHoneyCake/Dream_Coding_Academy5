@@ -55,7 +55,7 @@ function finishGame(win) {
 }
 
 function showStopBtn() {
-  const icon = gameBtn.querySelector(".fas");
+  const icon = gameBtn.querySelector(".fa");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
 }

@@ -30,7 +30,6 @@ gameBtn.addEventListener("click", () => {
 
 popUpRefresh.addEventListener("click", () => {
   startGame();
-  hidePopUp();
 });
 
 function startGame() {
@@ -55,7 +54,7 @@ function finishGame(win) {
 }
 
 function showStopBtn() {
-  const icon = gameBtn.querySelector(".fas");
+  const icon = gameBtn.querySelector(".fa-play");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
 }
@@ -90,10 +89,6 @@ function stopGameTimer() {
 function showPopUpWithText(text) {
   popUpText.innerText = text;
   popUp.classList.remove("pop-up--hide");
-}
-
-function hidePopUp() {
-  popUp.classList.add("pop-up--hide");
 }
 
 function updateTimerText(time) {
