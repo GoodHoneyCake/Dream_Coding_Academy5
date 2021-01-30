@@ -22,19 +22,19 @@ function onAdd() {
   input.focus();
 }
 
-let id = 0; // UUID 같은 라이브러리를 쓰는게 좋지만 지금은 간단한 미니 프로젝트라서 이렇게 글로벌로 id를 숫자로 정의
 function createItem(text) {
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item__row");
-  itemRow.setAttribute("data-id", id);
   itemRow.innerHTML = `
+
   <div class="item">
-    <span class="item__name">${text}</span>
+    <span class="item__name"></span>
     <button class="item__delete">
-      <i class="fas fa-trash-alt" data-id=${id}></i>
+      <i class="fas fa-trash-alt"></i>
     </button>
   </div>
   <div class="item__divider"></div>
+
 `;
   // const item = document.createElement("div");
   // item.setAttribute("class", "item");
@@ -58,7 +58,6 @@ function createItem(text) {
 
   // itemRow.appendChild(item);
   // itemRow.appendChild(itemDivider);
-  id++;
   return itemRow;
 }
 
@@ -69,13 +68,7 @@ addBtn.addEventListener("click", () => {
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     onAdd();
-  }
-});
-
-items.addEventListener("click", (e) => {
-  const id = e.target.dataset.id;
-  if (id) {
-    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
-    toBeDeleted.remove();
+  } else {
+    return;
   }
 });

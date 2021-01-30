@@ -7,7 +7,7 @@ const addBtn = document.querySelector(".footer__btn");
 function onAdd() {
   // 1. 사용자가 입력한 텍스트를 받아온다
   const text = input.value;
-  if (text === "") {
+  if (text === "" || text.length == null) {
     input.focus();
     return;
   }
@@ -26,12 +26,11 @@ let id = 0; // UUID 같은 라이브러리를 쓰는게 좋지만 지금은 간�
 function createItem(text) {
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item__row");
-  itemRow.setAttribute("data-id", id);
   itemRow.innerHTML = `
-  <div class="item">
+  <div class="item" data-id=${id}>
     <span class="item__name">${text}</span>
-    <button class="item__delete">
-      <i class="fas fa-trash-alt" data-id=${id}></i>
+    <button class="item__delete" data-id=${id}>
+      <i class="fas fa-trash-alt"></i>
     </button>
   </div>
   <div class="item__divider"></div>
@@ -69,13 +68,7 @@ addBtn.addEventListener("click", () => {
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     onAdd();
-  }
-});
-
-items.addEventListener("click", (e) => {
-  const id = e.target.dataset.id;
-  if (id) {
-    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
-    toBeDeleted.remove();
+  } else {
+    return;
   }
 });

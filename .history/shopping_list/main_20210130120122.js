@@ -75,7 +75,7 @@ input.addEventListener("keydown", (e) => {
 items.addEventListener("click", (e) => {
   const id = e.target.dataset.id;
   if (id) {
-    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
+    const toBeDeleted = document.querySelector(`.item[data-id="${id}"]`);
     toBeDeleted.remove();
   }
 });

@@ -26,9 +26,8 @@ let id = 0; // UUID 같은 라이브러리를 쓰는게 좋지만 지금은 간�
 function createItem(text) {
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item__row");
-  itemRow.setAttribute("data-id", id);
   itemRow.innerHTML = `
-  <div class="item">
+  <div class="item" data-id=${id}>
     <span class="item__name">${text}</span>
     <button class="item__delete">
       <i class="fas fa-trash-alt" data-id=${id}></i>
@@ -75,7 +74,7 @@ input.addEventListener("keydown", (e) => {
 items.addEventListener("click", (e) => {
   const id = e.target.dataset.id;
   if (id) {
-    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
+    const toBeDeleted = document.querySelector(`.item[data-id="${id}"]`);
     toBeDeleted.remove();
   }
 });
