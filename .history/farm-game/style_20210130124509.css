@@ -1,0 +1,12 @@
+.game {
+  width: 800px;
+  height: 500px;
+  background: center/cover url(img/background.png);
+}
+.game__header {
+}
+.game__field {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
