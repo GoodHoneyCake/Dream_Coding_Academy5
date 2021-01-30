@@ -1,7 +1,7 @@
 "use strict";
-import { Reason, GameBuilder } from "./game.js";
+import { Reason ,GameBuilder } from "./game.js";
 import PopUp from "./popup.js";
-import * as sound from "./sound.js";
+import  from "./game.js";
 
 const gameFinishBanner = new PopUp();
 
@@ -17,15 +17,12 @@ game.setGameStopListener((reason) => {
   switch (reason) {
     case Reason.cancel:
       message = "😡";
-      sound.palyAlert();
       break;
-    case Reason.win:
+    case "승리":
       message = "😎";
-      sound.palyWin();
       break;
-    case Reason.lose:
+    case "패배":
       message = "🥺";
-      sound.palyBug();
       break;
     default:
       throw new Error("not valid reason");

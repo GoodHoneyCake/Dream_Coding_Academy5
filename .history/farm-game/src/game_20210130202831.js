@@ -1,7 +1,7 @@
 "use strict";
 
 import * as sound from "./sound.js";
-import { Field, ItemType } from "./field.js";
+import Field from "./field.js";
 
 export const Reason = Object.freeze({
   win: "승리",
@@ -39,7 +39,7 @@ class Game {
     this.gameScore = document.querySelector(".game__score");
     this.gameBtn.addEventListener("click", () => {
       if (this.started) {
-        this.stop(Reason.cancel);
+        this.stop();
       } else {
         this.start();
       }
@@ -70,14 +70,20 @@ class Game {
     this.started = false;
     this.stopGameTimer();
     this.hideGameBtn();
-    sound.stopBg();
-    if (reason) {
+
+    sound.palyAlert();
+
+    this.onGameStop && this.onGameStop(reason);
+  }
+
+  finish(win) {
+    if (win) {
       sound.palyWin();
     } else {
       sound.palyBg();
     }
-    sound.palyAlert();
-    this.onGameStop && this.onGameStop(reason);
+
+    this.onGameStop && this.onGameStop(win ? Reason.win : Reason.lose);
   }
 
   //bind arrow func
@@ -85,14 +91,14 @@ class Game {
     if (this.started === false) {
       return;
     }
-    if (item === ItemType.carrot) {
+    if (item === "carrot") {
       this.score++;
       this.updateScoreBoard();
       if (this.score === this.carrotCount) {
-        this.stop(Reason.win);
+        this.finish(true);
       }
-    } else if (item === ItemType.bug) {
-      this.stop(Reason.lose);
+    } else if (item === "bug") {
+      this.finish(false);
     }
   };
 
@@ -119,7 +125,7 @@ class Game {
     this.timer = setInterval(() => {
       if (remainingTimeSec <= 0) {
         clearInterval(this.timer);
-        this.stop(this.carrotCount === this.score ? Reason.win : Reason.lose);
+        this.finish(this.carrotCount === this.score);
         return;
       }
       this.updateTimerText(--remainingTimeSec);

@@ -2,10 +2,7 @@
 import * as sound from "./sound.js";
 const CARROT_SIZE = 80;
 
-export const ItemType = Object.freeze({
-  carrot: "carrot",
-  bug: "bug",
-});
+export const ItemType = Object.freeze();
 export class Field {
   constructor(carroutCount, bugCount) {
     this.carroutCount = carroutCount;

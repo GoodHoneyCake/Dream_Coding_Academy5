@@ -1,7 +1,7 @@
 "use strict";
 
 import * as sound from "./sound.js";
-import { Field, ItemType } from "./field.js";
+import Field from "./field.js";
 
 export const Reason = Object.freeze({
   win: "승리",
