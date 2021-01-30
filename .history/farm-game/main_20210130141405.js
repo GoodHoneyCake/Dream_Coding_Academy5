@@ -37,7 +37,7 @@ function startGame() {
 function stopGame() {
   stopGameTimer();
   hideGameBtn();
-  showPopUpWithText("REPLAY? 🥕");
+  showPopUpWithText("REPLAY?");
 }
 
 function showStopBtn() {
