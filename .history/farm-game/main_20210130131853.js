@@ -15,8 +15,8 @@ function initGame() {
 function addItem(className, count, imgPath) {
   const x1 = 0;
   const y1 = 0;
-  const x2 = fieldRect.width - CARROT_SIZE;
-  const y2 = fieldRect.height - CARROT_SIZE;
+  const x2 = fieldRect.width - BUG_SIZE;
+  const y2 = fieldRect.height - BUG_SIZE;
   for (let i = 0; i < count; i++) {
     const item = document.createElement("img");
     item.setAttribute("class", className);

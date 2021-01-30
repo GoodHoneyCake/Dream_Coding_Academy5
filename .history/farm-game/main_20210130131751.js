@@ -1,9 +1,10 @@
 "use strict";
-const CARROT_SIZE = 80;
-const BUG_SIZE = 50;
 
 const field = document.querySelector(".game__field");
 const fieldRect = field.getBoundingClientRect();
+
+const CARROT = 80;
+const BUG = 50;
 
 function initGame() {
   // 벌레와 당근을 생성한뒤 필드에 추가해준다
@@ -15,8 +16,8 @@ function initGame() {
 function addItem(className, count, imgPath) {
   const x1 = 0;
   const y1 = 0;
-  const x2 = fieldRect.width - CARROT_SIZE;
-  const y2 = fieldRect.height - CARROT_SIZE;
+  const x2 = fieldRect.width;
+  const y2 = fieldRect.height;
   for (let i = 0; i < count; i++) {
     const item = document.createElement("img");
     item.setAttribute("class", className);
