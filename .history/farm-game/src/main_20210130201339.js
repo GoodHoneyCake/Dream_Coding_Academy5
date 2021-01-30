@@ -9,7 +9,6 @@ const game = new GameBuilder()
   .withCarrotCount(5)
   .withBugCount(5)
   .build();
-
 game.setGameStopListener((reason) => {
   console.log(reason);
   let message;

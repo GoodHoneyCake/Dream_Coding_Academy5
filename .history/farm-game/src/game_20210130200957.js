@@ -3,7 +3,7 @@
 import * as sound from "./sound.js";
 import Field from "./field.js";
 
-export default class GameBuilder {
+export class GameBuilder {
   withGameDuration(duration) {
     this.gameDuration = duration;
     return this;
@@ -12,14 +12,9 @@ export default class GameBuilder {
     this.carrotCount = num;
     return this;
   }
-  withBugCount(num) {
-    this.bugCount = num;
-    return this;
-  }
-
-  build() {
-    console.log(this);
-    return new Game(this.gameDuration, this.carrotCount, this.bugCount);
+  withBugCount(num){
+      this.bugCount = num
+      retrun this
   }
 }
 class Game {

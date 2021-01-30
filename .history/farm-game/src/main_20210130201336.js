@@ -4,12 +4,11 @@ import GameBuilder from "./game.js";
 
 const gameFinishBanner = new PopUp();
 
-const game = new GameBuilder()
+const game = new Game()
   .withGameDuration(5)
   .withCarrotCount(5)
   .withBugCount(5)
   .build();
-
 game.setGameStopListener((reason) => {
   console.log(reason);
   let message;

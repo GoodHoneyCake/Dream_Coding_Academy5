@@ -3,7 +3,7 @@
 import * as sound from "./sound.js";
 import Field from "./field.js";
 
-export default class GameBuilder {
+export class GameBuilder {
   withGameDuration(duration) {
     this.gameDuration = duration;
     return this;
