@@ -2,6 +2,7 @@
 import PopUp from "./popup.js";
 import Field from "./field.js";
 
+const CARROT_SIZE = 80;
 const CARROT_COUNT = 5;
 const BUG_COUNT = 5;
 const GAME_DURATION_SEC = 5;
@@ -139,4 +140,8 @@ function stopSound(sound) {
 
 function updateScoreBoard() {
   gameScore.innerText = CARROT_COUNT - score;
+}
+
+function randomNumber(min, max) {
+  return Math.random() * (max - min) + min;
 }

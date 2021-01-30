@@ -2,6 +2,7 @@
 import PopUp from "./popup.js";
 import Field from "./field.js";
 
+const CARROT_SIZE = 80;
 const CARROT_COUNT = 5;
 const BUG_COUNT = 5;
 const GAME_DURATION_SEC = 5;
@@ -21,27 +22,12 @@ let score = 0;
 let timer = undefined;
 
 const gameFinishBanner = new PopUp();
+
 gameFinishBanner.setClickListener(() => {
   startGame();
 });
 
-const gameField = new Field(CARROT_COUNT, BUG_COUNT);
-gameField.setClickListener(onItemClick);
-
-function onItemClick(item) {
-  if (started === false) {
-    return;
-  }
-  if (item === "carrot") {
-    score++;
-    updateScoreBoard();
-    if (score === CARROT_COUNT) {
-      finishGame(true);
-    }
-  } else if (item === "bug") {
-    finishGame(false);
-  }
-}
+field.addEventListener("click", onFieldClick);
 
 gameBtn.addEventListener("click", () => {
   if (started) {
@@ -125,7 +111,26 @@ function updateTimerText(time) {
 function initGame() {
   score = 0;
   gameScore.innerText = CARROT_COUNT;
-  gameField.init();
+}
+
+function onFieldClick(e) {
+  if (started === false) {
+    return;
+  }
+  const target = e.target;
+  if (target.matches(".carrot")) {
+    // 당근!!
+    target.remove();
+    score++;
+    playSound(carrotSound);
+    updateScoreBoard();
+    if (score === CARROT_COUNT) {
+      finishGame(true);
+    }
+  } else if (target.matches(".bug")) {
+    // 벌레!!
+    finishGame(false);
+  }
 }
 
 function playSound(sound) {
@@ -139,4 +144,8 @@ function stopSound(sound) {
 
 function updateScoreBoard() {
   gameScore.innerText = CARROT_COUNT - score;
+}
+
+function randomNumber(min, max) {
+  return Math.random() * (max - min) + min;
 }

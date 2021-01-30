@@ -2,6 +2,7 @@
 import PopUp from "./popup.js";
 import Field from "./field.js";
 
+const CARROT_SIZE = 80;
 const CARROT_COUNT = 5;
 const BUG_COUNT = 5;
 const GAME_DURATION_SEC = 5;
@@ -25,8 +26,8 @@ gameFinishBanner.setClickListener(() => {
   startGame();
 });
 
-const gameField = new Field(CARROT_COUNT, BUG_COUNT);
-gameField.setClickListener(onItemClick);
+const gameField = new Field();
+gameField.onItemClick(onItemClick);
 
 function onItemClick(item) {
   if (started === false) {
@@ -42,6 +43,8 @@ function onItemClick(item) {
     finishGame(false);
   }
 }
+
+field.addEventListener("click", onFieldClick);
 
 gameBtn.addEventListener("click", () => {
   if (started) {
@@ -125,7 +128,6 @@ function updateTimerText(time) {
 function initGame() {
   score = 0;
   gameScore.innerText = CARROT_COUNT;
-  gameField.init();
 }
 
 function playSound(sound) {
@@ -139,4 +141,8 @@ function stopSound(sound) {
 
 function updateScoreBoard() {
   gameScore.innerText = CARROT_COUNT - score;
+}
+
+function randomNumber(min, max) {
+  return Math.random() * (max - min) + min;
 }
