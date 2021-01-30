@@ -7,12 +7,15 @@ const BUG_COUNT = 5;
 const GAME_DURATION_SEC = 5;
 
 const gameFinishBanner = new PopUp();
+gameFinishBanner.setClickListener(() => {
+  startGame();
+});
 
 const game = new Game(GAME_DURATION_SEC, CARROT_COUNT, BUG_COUNT);
 game.setGameStopListener((reason) => {
   console.log(reason);
   let message;
-  switch (reason) {
+  switch (reson) {
     case "취소":
       message = "😡";
       break;
@@ -26,8 +29,4 @@ game.setGameStopListener((reason) => {
       throw new Error("not valid reason");
   }
   gameFinishBanner.showWithText(message);
-});
-
-gameFinishBanner.setClickListener(() => {
-  game.start();
 });

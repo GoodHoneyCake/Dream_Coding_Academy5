@@ -1,5 +1,5 @@
-"use strict";
 import * as sound from "./sound.js";
+("use strict");
 const CARROT_SIZE = 80;
 
 export default class Field {
@@ -40,7 +40,7 @@ export default class Field {
       this.field.appendChild(item);
     }
   }
-  // bind: = () => arrow func
+  // bind = () =>
   onClick = (e) => {
     const target = e.target;
     if (target.matches(".carrot")) {

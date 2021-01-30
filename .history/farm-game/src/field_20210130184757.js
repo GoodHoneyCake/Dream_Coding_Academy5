@@ -1,5 +1,5 @@
-"use strict";
 import * as sound from "./sound.js";
+("use strict");
 const CARROT_SIZE = 80;
 
 export default class Field {
